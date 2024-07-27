@@ -17,13 +17,22 @@ export default function App() {
 		Not: colorData dosyaya aktarılmıştır
 */
 
-  function ColorCard() {
+  function ColorCard({ colorData }) {
     return (
-      <div className="color-card" style={{ background: "#34568B" }}>
-        <p>
-          <span>1.</span> #34568B
-        </p>
-      </div>
+      <>
+        {colorData.map((color, index) => {
+          return (
+            <div
+              className="color-card"
+              style={{ background: /*"#34568B"*/ colorData[index] }}
+            >
+              <p>
+                <span>{index+1}.</span><hr></hr>{colorData[index]}
+              </p>
+            </div>
+          );
+        })}
+      </>
     );
   }
 
@@ -33,7 +42,7 @@ export default function App() {
 
       {/*------ColorCard elementleriniz aşağıda-----------*/}
 
-      <ColorCard />
+      <ColorCard colorData={colorData} />
 
       {/*------ ColorCard elementleriniz yukarıda-----------*/}
     </div>
